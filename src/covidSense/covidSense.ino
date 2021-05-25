@@ -27,10 +27,9 @@ void loop() {
   double temperatureK = b / (log(rAvg / r0) + (b / t0));
 //  Serial.println(temperatureK);
 
-  double temperatureF = (temperatureK - 273.15) * (9.0/5.0) + 32;
+  int temperatureF = (int) (temperatureK - 273.15) * (9.0/5.0) + 32;
   Serial.println(temperatureF);
   
-  delay(1000);
-//  Serial.println("hello");
+  delay(1000);;
   
 }

@@ -25,7 +25,7 @@ void loop() {
 //  Serial.println(adc_sum);
   double rAvg = rSum/(double) avgResolution;
   double temperatureK = b / (log(rAvg / r0) + (b / t0));
-  //Serial.println(temperatureK);
+//  Serial.println(temperatureK);
 
   double temperatureF = (temperatureK - 273.15) * (9.0/5.0) + 32;
   Serial.println(temperatureF);

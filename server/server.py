@@ -5,7 +5,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 class requestHandler(BaseHTTPRequestHandler):
 
     def do_HEAD(self):
-                self.send_response(200)
+        self.send_response(200)
+        self.send_header("Content-type", "text")
+        self.end_headers()
     def do_GET(self):
         data= getBlueToothValue()
         self.send_response(200)

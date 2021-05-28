@@ -3,18 +3,21 @@ from bluetooth import getBlueToothValue
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 class requestHandler(BaseHTTPRequestHandler):
+    def send_cors_headers(self):
+      self.send_header("Access-Control-Allow-Origin", "*")
+      self.send_header("Access-Control-Allow-Methods", "GET")
+      self.send_header("Access-Control-Allow-Headers", "Content-Type")
 
-    def do_HEAD(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text")
-        self.end_headers()
     def do_GET(self):
-        data= getBlueToothValue()
         self.send_response(200)
-        print(data)
-        self.send_header("Content-type", "text")
+        self.send_cors_headers()
         self.end_headers()
+        data= getBlueToothValue()
+        response= {}
+        response["status"] = "OK"
+        response["body"] = data
         self.wfile.write(data)
+        
 
 os.chdir('.') 
 server_object = HTTPServer(server_address=('', 8080), RequestHandlerClass=requestHandler)

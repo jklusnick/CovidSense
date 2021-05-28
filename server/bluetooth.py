@@ -10,4 +10,5 @@ def getBlueToothValue ():
         data = bluetooth.read_until()
         return data
     except:
-        return bytes("No bluetooth module detected", 'utf-8')
+        # return bytes("No bluetooth module detected", 'utf-8')
+        return "No bluetooth module detected"

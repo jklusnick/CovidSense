@@ -23,7 +23,6 @@ fetch(url, { method: 'GET', mode: 'cors',})
     }
   })
   .catch(err => {
-      console.log('Something went wrong!');
       console.log(err);
       alert("Something went wrong! Confirm server status.");
   });

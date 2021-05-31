@@ -16,7 +16,7 @@ class requestHandler(BaseHTTPRequestHandler):
         response= {}
         response["status"] = "OK"
         response["body"] = data
-        self.wfile.write(data)
+        self.wfile.write(repr(data).encode())
         
 
 os.chdir('.') 

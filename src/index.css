@@ -2,6 +2,22 @@ body{
     background-color: lightblue;
 }
 
+#temps{
+    font-size: 100px;
+    padding-top: -2px;
+}
+
+#info{
+    padding-top: 15px;
+    text-align: center;
+}
+
+#links{
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+}
+
 .flex-container{
     display: flex;
 }

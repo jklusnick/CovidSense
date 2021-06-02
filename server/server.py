@@ -13,6 +13,7 @@ class requestHandler(BaseHTTPRequestHandler):
         self.send_cors_headers()
         self.end_headers()
         data= getBlueToothValue()
+        print(data)
         response= {}
         response["status"] = "OK"
         response["body"] = data

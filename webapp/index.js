@@ -7,7 +7,6 @@ fetch(url, { method: 'GET', mode: 'cors',})
   })
   .then(data => {
     var string = new TextDecoder().decode(data.value); //the string is sent as UTF-8 bytes so it needs to be decoded
-    console.log(string);
     let lt = document.getElementById('low-temp');
     let ht = document.getElementById('high-temp');
     if (string.includes("module")) {
@@ -17,7 +16,11 @@ fetch(url, { method: 'GET', mode: 'cors',})
     }
     else {
       string = string.slice(1,-1);
-      var temps = string.split(",");
+      let parsed = string.split(",");
+      let temps= ['', ''];
+      temps[0] = parsed[0].replace(/\D+/g, '');
+      temps[1] = parsed[1].replace(/\D+/g, '');
+      
       lt.innerHTML = temps[0];
       ht.innerHTML = temps[1];
     }
